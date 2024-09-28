@@ -1,3 +1,7 @@
+
+
+![Screenshot from 2024-09-28 18-47-31](https://github.com/user-attachments/assets/b53d2137-339c-4044-a461-fb1913cb1b54)
+
 # Steps to Run the Application
 
 ### Frontend:
