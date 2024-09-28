@@ -1,0 +1,302 @@
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 50px solid black;
+  box-sizing: border-box; /* This ensures the border is included within the viewport */
+}
+
+.App {
+  max-width: 800px;
+  width: 100%;
+  margin: 20px;
+  padding: 30px;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.5));
+  backdrop-filter: blur(10px);
+  min-height: 80vh;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.App::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  animation: shimmer 15s infinite linear;
+  z-index: 1;
+}
+
+.App > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.App:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.chatbot {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.chatbot:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.chat-messages {
+  height: 450px;
+  overflow-y: auto;
+  padding: 25px;
+  background-color: rgba(248, 250, 252, 0.8);
+  backdrop-filter: blur(10px);
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f8fafc;
+}
+
+.message {
+  margin-bottom: 20px;
+  padding: 16px 22px;
+  border-radius: 18px;
+  max-width: 70%;
+  animation: fadeIn 0.5s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.message::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  animation: shimmer 15s infinite linear;
+  z-index: 1;
+}
+
+.user {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #ffffff;
+  align-self: flex-end;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+.bot {
+  background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+  color: #1f2937;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+form {
+  display: flex;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.5));
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(229,231,235,0.3);
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+form::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+  animation: shimmerForm 10s infinite linear;
+  z-index: 1;
+}
+
+form > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes shimmerForm {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+form:focus-within {
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.6));
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  form {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  form {
+    padding: 12px;
+    flex-direction: column;
+  }
+
+  form input {
+    margin-bottom: 10px;
+  }
+
+  form button {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+input {
+  flex-grow: 1;
+  padding: 16px 20px;
+  border: 2px solid #e5e7eb;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f9fafb;
+  color: #1f2937;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+input:hover {
+  border-color: #d1d5db;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  input {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  input {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+}
+
+button {
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #4a90e2 0%, #3a7bc8 100%);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  margin-left: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(74, 144, 226, 0.1);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.4s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #3a7bc8 0%, #2a6cb8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(74, 144, 226, 0.2);
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.1);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+}
+
+@media (max-width: 768px) {
+  button {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    padding: 10px 16px;
+    font-size: 12px;
+    margin-left: 8px;
+  }
+}
